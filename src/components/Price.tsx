@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 
 type Props = {
   price: number;
-  id: number;
+  id: string;
   options?: { title: string; additionalPrice: number }[];
 };
 
