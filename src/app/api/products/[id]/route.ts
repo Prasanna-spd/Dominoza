@@ -1,4 +1,5 @@
-// import { getAuthSession } from "@/utils/auth";
+
+import { getAuthSession } from "@/auth";
 import { prisma } from "@/utils/connect";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -32,9 +33,9 @@ export const DELETE = async (
   { params }: { params: { id: string } }
 ) => {
   const { id } = params;
-//   const session = await getAuthSession();
+  const session = await getAuthSession();
 
-//   if (session?.user.isAdmin) {
+  if (session?.user.isAdmin) {
     try {
       await prisma.product.delete({
         where: {
@@ -52,7 +53,7 @@ export const DELETE = async (
         { status: 500 }
       );
     }
-//   }
+  }
   return new NextResponse(JSON.stringify({ message: "You are not allowed!" }), {
     status: 403,
   });
