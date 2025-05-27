@@ -1,8 +1,8 @@
 import { prisma } from "@/utils/connect";
 import { NextRequest, NextResponse } from "next/server";
 
-export const PUT = async (request: NextRequest, { params }: { params: { intentId: string } }) => {
-  const { intentId } = params;
+export const PUT = async (request: NextRequest, context: { params: { intentId: string } }) => {
+  const { intentId } = context.params;
 
   try {
     await prisma.order.update({
