@@ -1,7 +1,10 @@
 import { prisma } from "@/utils/connect";
 import { NextRequest, NextResponse } from "next/server";
 
-export const PUT = async (request: NextRequest, context: { params: { intentId: string } }) => {
+export async function PUT(
+  request: NextRequest,
+  context: { params: { intentId: string } }
+) {
   const { intentId } = context.params;
 
   try {
@@ -11,9 +14,10 @@ export const PUT = async (request: NextRequest, context: { params: { intentId: s
       },
       data: { status: "Being prepared!" },
     });
-    return new NextResponse(JSON.stringify({ message: "Order has been updated" }), { status: 200 });
+
+    return NextResponse.json({ message: "Order has been updated" }, { status: 200 });
   } catch (err) {
-    console.log(err);
-    return new NextResponse(JSON.stringify({ message: "Something went wrong!" }), { status: 500 });
+    console.error(err);
+    return NextResponse.json({ message: "Something went wrong!" }, { status: 500 });
   }
-};
+}
