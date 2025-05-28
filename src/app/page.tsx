@@ -4,6 +4,7 @@ import Slider from '@/components/Slider'
 
 export default function Home() {
   return (
+    // new meondb database added 
     <main>
       <Slider/>
       <Featured/>
