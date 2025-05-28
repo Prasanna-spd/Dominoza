@@ -1,6 +1,6 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 // import ConfettiExplosion from "react-confetti-explosion";
 
 const SuccessPage = () => {
@@ -27,6 +27,7 @@ const SuccessPage = () => {
 
   return (
     <>
+    <Suspense>
       <div className="min-h-[calc(100vh-6rem)] md:min-h-[calc(100vh-15rem)] flex items-center justify-center text-center text-2xl text-green-700">
         <p className="max-w-[600px]">
           Payment successful. You are being redirected to the orders page.
@@ -35,6 +36,7 @@ const SuccessPage = () => {
       {/* <ConfettiExplosion className="absolute m-auto" */}
       {/* /> */}
       </div>
+      </Suspense>
     </>
   );
 };
