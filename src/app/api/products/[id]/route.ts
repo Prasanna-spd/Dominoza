@@ -21,8 +21,8 @@ export const GET = async (req: NextRequest, { params }: { params: Promise<{ id: 
 };
 
 // DELETE SINGLE PRODUCT
-export const DELETE = async (req: NextRequest, { params }: { params: { id: string } }) => {
-  const { id } = params;
+export const DELETE = async (req: NextRequest, { params }: { params: Promise<{ id: string } >}) => {
+  const { id } = await params;
   const session = await getAuthSession();
 
   if (session?.user.isAdmin) {
