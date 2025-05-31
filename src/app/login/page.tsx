@@ -18,7 +18,7 @@ const LoginPage = () => {
 
   
   if (status === "loading") {
-    return <p>Loading...</p>;
+    return <p>Loading Page...</p>;
   }
 
   return (
