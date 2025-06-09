@@ -17,7 +17,7 @@ const getData = async (id: string) => {
 };
 
 const SingleProductPage = async ({ params }: { params: Promise<{ id: string }> }) => {
-  const {id}=use(params)
+  const {id}=await (params)
   const singleProduct: ProductType = await getData(id);
 
   return (
